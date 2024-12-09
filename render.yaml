@@ -4,5 +4,5 @@ services:
     repo: https://github.com/pkhalladin/bookstore-server
     runtime: node
     plan: free
-    buildCommand: npm build
+    buildCommand: npm install
     startCommand: npm dev
