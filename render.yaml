@@ -1,0 +1,30 @@
+# This file tells Render.com what to create when you deploy your app
+# See https://docs.render.com/infrastructure-as-code
+# See https://docs.render.com/blueprint-spec
+
+services:
+  - type: web
+    # Update name below
+    # This sets the URL to "______.onrender.com".
+    # It must be unique between all Render.com users.
+    name: your-name-bookstore
+    plan: free
+    region: ohio
+    runtime: node
+    buildCommand: "./build.sh"
+    startCommand: "npm run start"
+    buildFilter:
+      ignoredPaths:
+        - "**/*.test.ts"
+        - "**/*.test.tsx"
+    # If you have your own custom domains, uncomment below and replace with your own domains
+    # domains:
+    #   - example.com
+    #   - www.example.org
+    envVars:
+      - key: NODE_VERSION
+        # Update the line below to your current version of node
+        # To get your node version: node -v
+        value: 20.13
+      - key: NODE_ENV
+        value: "production"
